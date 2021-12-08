@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
 const HelpQueueHeader = styled.h1`
-  font-size: 24px;
+  font-size: 70px;
   text-align: center;
   color: white;
+  font-family: Papyrus;
 `;
 
 const StyledWrapper = styled.section`

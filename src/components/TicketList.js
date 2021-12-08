@@ -3,6 +3,11 @@ import PropTypes from "prop-types";
 import Ticket from "./Ticket";
 import { useSelector } from 'react-redux'
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import styled from 'styled-components';
+
+const StyledWrapper = styled.section`
+  background-color: grey;
+`;
 
 function TicketList(props){
   useFirestoreConnect([
@@ -12,6 +17,7 @@ function TicketList(props){
   const tickets = useSelector(state => state.firestore.ordered.tickets);
   if (isLoaded(tickets)) {
     return (
+      <StyledWrapper>
       <React.Fragment>
         <hr/>
         {tickets.map((ticket) => {
@@ -25,6 +31,7 @@ function TicketList(props){
             key={ticket.id}/>
         })}
       </React.Fragment>
+      </StyledWrapper>
     );
   } else {
     return (
